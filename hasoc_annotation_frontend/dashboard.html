@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="./static/js/base.js"></script>
+    <script type="text/javascript" src="./static/js/dashboard.js"></script>
+</head>
+
+<body id="body">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
+        <a class="navbar-brand" href="admin.html">HASOC 2021</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="admin.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="users.html">Users<span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="dashboard.html">Dashboard<span class="sr-only"></span></a>
+                </li>
+            </ul>
+            <ul class="nav pull-right align-middle">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="username" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Dropdown
+                    </button>
+                    <div class="dropdown-menu sticky-top" aria-labelledby="dropdownMenu2">
+                        <button class="dropdown-item text-danger" type="button" onclick="logout()">Logout</button>
+                        <button class="dropdown-item text-info" type="button" onclick="changePassword()">Change Password</button>
+
+                    </div>
+                </div>
+            </ul>
+        </div>
+    </nav>
+    <div id="LoadingImage" class="text-center my-5" style="display: none">
+        <img src="1476.gif" />
+        <h5>Loading...</h5>
+    </div>
+    <div class="container-fluid" id="story_table">
+        <table class="table table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col" rowspan="2" class="align-middle">Story</th>
+                    <th scope="col" rowspan="2" class="align-middle text-center">No of Status</th>
+                    <th scope="col" rowspan="2" class="align-middle text-center">No of Tweets</th>
+                    <th scope="col" colspan="3" class="text-center">Annotated By</th>
+                </tr>
+                <tr>
+                    <th scope="col" class="text-center">One</th>
+                    <th scope="col" class="text-center">Two</th>
+                    <th scope="col" class="text-center">Three</th>
+                </tr>
+
+            </thead>
+            <tbody id="story_table_body">
+                <tr>
+                    <td>hello</td>
+                    <td class="text-center">6</td>
+                    <td class="text-center">1245</td>
+                    <td class="text-center">5</td>
+                    <td class="text-center">0</td>
+                    <td class="text-center">0</td>
+                </tr>
+                <tr>
+                    <td>hello</td>
+                    <td class="text-center">6</td>
+                    <td class="text-center">1245</td>
+                    <td class="text-center">5</td>
+                    <td class="text-center">0</td>
+                    <td class="text-center">0</td>
+                </tr>
+                <tr>
+                    <td>hello</td>
+                    <td class="text-center">6</td>
+                    <td class="text-center">1245</td>
+                    <td class="text-center">5</td>
+                    <td class="text-center">0</td>
+                    <td class="text-center">0</td>
+                </tr>
+                <tr>
+                    <td>hello</td>
+                    <td class="text-center">6</td>
+                    <td class="text-center">1245</td>
+                    <td class="text-center">5</td>
+                    <td class="text-center">0</td>
+                    <td class="text-center">0</td>
+                </tr>
+                <tr>
+                    <th>TOTAL</td>
+                        <th class="text-center">6</th>
+                        <th class="text-center">1245</th>
+                        <th class="text-center">5</th>
+                        <th class="text-center">0</th>
+                        <th class="text-center">0</th>
+                </tr>
+
+
+            </tbody>
+        </table>
+
+        <div class="container-fluid mt-5" id="user_table">
+            <table class="table table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col" class="align-middle">User</th>
+                        <th scope="col" class="align-middle text-center">No of Assigned Status</th>
+                        <th scope="col" class="align-middle text-center">No of Annotated Status</th>
+                        <th scope="col" class="text-center">No of Annotated Tweets</th>
+                    </tr>
+
+                </thead>
+                <tbody id="user_table_body">
+                    <tr>
+                        <td>hello</td>
+                        <td class="text-center">6</td>
+                        <td class="text-center">6</td>
+                        <td class="text-center">1245</td>
+                    </tr>
+                    <tr>
+                        <td>hello</td>
+                        <td class="text-center">6</td>
+                        <td class="text-center">6</td>
+                        <td class="text-center">1245</td>
+                    </tr>
+                    <tr>
+                        <td>hello</td>
+                        <td class="text-center">6</td>
+                        <td class="text-center">6</td>
+                        <td class="text-center">1245</td>
+                    </tr>
+                    <tr>
+                        <td>hello</td>
+                        <td class="text-center">6</td>
+                        <td class="text-center">6</td>
+                        <td class="text-center">1245</td>
+                    </tr>
+                    <tr>
+                        <th>TOTAL</td>
+                            <th class="text-center">6</th>
+                            <th class="text-center">6</th>
+                            <th class="text-center">1245</th>
+                    </tr>
+
+
+                </tbody>
+            </table>
+
+
+        </div>
+        <!----------------------------------------------------------------------------------------------------------------------------->
+
+        <footer class="page-footer font-small bg-dark special-color-dark pt-2">
+            <!-- Copyright -->
+            <div class="footer-copyright text-center text-white py-3">© 2021 Copyright:
+                <a href="https://hasocfire.github.io/" class="text-white"> Team HASOC</a>
+            </div>
+            <!-- Copyright -->
+        </footer>
+        <!-- Footer -->
+        <script>
+            checkLogin();
+            display();
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>
