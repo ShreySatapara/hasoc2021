@@ -7,10 +7,11 @@ from functools import wraps
 from datetime import datetime, timedelta
 from flask_cors import cross_origin, CORS
 import urllib
+import os
 
 app = Flask(__name__)
 bcrypt = Bcrypt(app)
-app.config['SECRET_KEY'] = 'hfsjkfsdkfalfsghsgawevnuo'
+app.config['SECRET_KEY'] = os.getenv("SECRET_KEY")
 app.config['CORS_HEADERS'] = 'application/json'
 CORS(app)
 ## AUTH token wrap #########################
@@ -55,7 +56,7 @@ def admin_token_required(f):
 
 ########################################### DB config ###########################################
 try:
-    mongo = pymongo.MongoClient("mongodb+srv://ShreySatapara:"+ urllib.parse.quote("Keplar@186f") +"@hasocs32021.jtogk.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+    mongo = pymongo.MongoClient("")
     db = mongo.hasoc
     print('\n\n' + '#'*10 + '\n\nSUCCESS\n\n' + '#'*10)
     mongo.server_info()
